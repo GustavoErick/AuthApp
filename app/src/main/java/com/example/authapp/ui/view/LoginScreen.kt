@@ -98,6 +98,14 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                     .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    contentDescription = "App Logo",
+                    modifier = Modifier.size(80.dp)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
                 Text(
                     "Bem-vindo ao AuthApp!",
                     fontSize = 30.sp,
@@ -122,6 +130,7 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                 )
 
                 Spacer(modifier = Modifier.height(6.dp))
+
                 Button(
                     onClick = {
                         viewModel.login(email, password) { success ->
@@ -153,9 +162,8 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
-
                     Icon(
-                        painter = painterResource(id = R.drawable.logo_google),
+                        painter = painterResource(id = R.drawable.logo_google3),
                         contentDescription = "Google Login",
                         modifier = Modifier.size(24.dp),
                         tint = MaterialTheme.colorScheme.onPrimary
