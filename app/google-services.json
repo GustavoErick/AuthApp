@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1042025261499",
+    "project_id": "authapp-4744a",
+    "storage_bucket": "authapp-4744a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042025261499:android:b8995b0990cacd37cb3c9e",
+        "android_client_info": {
+          "package_name": "com.example.authapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAui_ekHzJiynEHYMJc9d_sHlbZUs-KrNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
