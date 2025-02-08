@@ -6,8 +6,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -54,7 +56,7 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
     var isVisible by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
-        isVisible = true // Ativa animação ao entrar na tela
+        isVisible = true
     }
 
     val googleSignInLauncher = rememberLauncherForActivityResult(
@@ -81,9 +83,14 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
         }
     }
 
-        AnimatedVisibility(
-            visible = isVisible,
-            enter = slideInVertically() + fadeIn()
+    AnimatedVisibility(
+        visible = isVisible,
+        enter = slideInVertically() + fadeIn()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
             Column(
                 modifier = Modifier
@@ -91,7 +98,11 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                     .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Bem-vindo ao AuthApp!", fontSize = 30.sp, style = MaterialTheme.typography.headlineLarge)
+                Text(
+                    "Bem-vindo ao AuthApp!",
+                    fontSize = 30.sp,
+                    style = MaterialTheme.typography.headlineLarge
+                )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -117,7 +128,11 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                             if (success) {
                                 navController.navigate("home")
                             } else {
-                                Toast.makeText(context, "Usuário ou senha inválida", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    context,
+                                    "Usuário ou senha inválida",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     },
@@ -159,8 +174,9 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
             }
         }
     }
+}
 
-@Composable
+    @Composable
 fun CustomTextField(
     value: String,
     onValueChange: (String) -> Unit,
